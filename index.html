@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Iran Pro Data Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { font-family: Tahoma, sans-serif; background: #f5f5f5; margin:0; padding:0; }
+        .container { max-width: 900px; margin: 40px auto; padding: 20px; }
+        h1 { text-align: center; margin-bottom: 30px; color: #333; }
+        .card { background: #fff; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        select, input, textarea { width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; box-sizing: border-box; font-size: 14px; }
+        button, .btn, .copy-btn { padding: 10px 15px; border: none; border-radius: 5px; background: #007bff; color: #fff; cursor: pointer; font-size: 14px; }
+        button:hover, .btn:hover, .copy-btn:hover { background: #0056b3; }
+        .output-card textarea { height: 200px; resize: vertical; }
+        .output-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-weight: bold; }
+        @media(max-width:600px){
+            .output-header { flex-direction: column; align-items: flex-start; }
+            .output-header button { margin-top: 10px; }
+        }
+    </style>
+</head>
+<body>
+<div class="banner">
+    <a href="https://github.com/USERNAME/REPO" target="_blank">
+        دانلود نسخه 1.01 از صفحه گیت هاب
+    </a>
+</div>
+
+<div class="container">
+
+    <h1>Iran Pro Data Generator</h1>
+
+    <div class="card">
+
+        <div class="form-group">
+            <label>انتخاب ابزار</label>
+            <select id="toolSelect"></select>
+        </div>
+
+        <div id="dynamicOptions"></div>
+
+        <div class="form-group">
+            <label>تعداد تولید</label>
+            <input type="number" id="count" value="1" min="1" max="5000">
+        </div>
+
+        <button class="btn" onclick="generate()">تولید داده</button>
+
+    </div>
+
+    <div class="card output-card">
+        <div class="output-header">
+            <span>خروجی</span>
+            <button class="copy-btn" onclick="copyOutput()">کپی</button>
+        </div>
+        <textarea id="output"></textarea>
+    </div>
+
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderOptions();
+    });
+</script>
+
+</body>
+</html>
